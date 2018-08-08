@@ -5,8 +5,25 @@ class Bio extends React.Component {
     super(props)
     this.state = {
       hidden: false,
+      wq: 0,
     }
   }
+
+  animateWq(i) {
+    setTimeout(() => {
+      this.setState({
+        wq: i,
+      })
+      if (i < 3) {
+        this.animateWq(i + 1)
+      }
+    }, 200)
+  }
+
+  componentDidMount() {
+    this.animateWq(0)
+  }
+
   render() {
     return (
       <div>
@@ -35,7 +52,8 @@ class Bio extends React.Component {
           </li>
         </ul>
         <div>
-          :wq<div className="vim-cursor" />
+          {':wq'.substring(0, this.state.wq)}
+          {this.state.wq > 0 && <div className="vim-cursor" />}
         </div>
       </div>
     )
