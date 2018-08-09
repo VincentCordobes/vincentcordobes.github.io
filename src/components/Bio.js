@@ -1,4 +1,12 @@
 import React from 'react'
+import { DateTime } from 'luxon'
+
+function myAge() {
+  const birthdate = DateTime.fromISO('1993-08-15')
+  return DateTime.local()
+    .diff(birthdate, 'years')
+    .toFormat('y')
+}
 
 class Bio extends React.Component {
   constructor(props) {
@@ -6,6 +14,7 @@ class Bio extends React.Component {
     this.state = {
       hidden: false,
       wq: 0,
+      age: myAge(),
     }
   }
 
@@ -31,7 +40,7 @@ class Bio extends React.Component {
           <h1>🦁 Vincent Cordobes</h1>
         </header>
         <p>
-          25 years old <br />
+          {this.state.age} years old <br />
           Software engineer <br />
           📍Paris
         </p>
