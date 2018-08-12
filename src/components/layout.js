@@ -4,15 +4,19 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 
 import Bio from '../components/Bio'
-import Layout from '../components/layout'
+import styles from './layout.module.css'
 
-import './global.css'
+export default ({ children }) => {
+  const siteTitle = get(this, 'props.data.site.siteMetadata.title')
+  const posts = get(this, 'props.data.allMarkdownRemark.edges')
 
-export default () => (
-  <Layout>
-    <Bio />
-  </Layout>
-)
+  return (
+    <div className={styles.container}>
+      <Helmet title={siteTitle} />
+      {children}
+    </div>
+  )
+}
 
 export const pageQuery = graphql`
   query {

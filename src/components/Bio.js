@@ -1,5 +1,6 @@
 import React from 'react'
 import { DateTime } from 'luxon'
+import { Link } from 'gatsby'
 
 function myAge() {
   const birthdate = DateTime.fromISO('1993-08-15')
@@ -20,9 +21,7 @@ class Bio extends React.Component {
 
   animateWq(i) {
     setTimeout(() => {
-      this.setState({
-        wq: i,
-      })
+      this.setState({ wq: i })
       if (i < 3) {
         this.animateWq(i + 1)
       }
@@ -30,7 +29,7 @@ class Bio extends React.Component {
   }
 
   componentDidMount() {
-    this.animateWq(0)
+    setTimeout(() => this.animateWq(0), 1000)
   }
 
   render() {
@@ -48,18 +47,15 @@ class Bio extends React.Component {
           I like functional programming, statically typed languages and I am
           very interested in Domain Driven Design.
         </p>
-        <span>Social:</span>
-        <ul>
-          <li>
-            <a href="https://twitter.com/VincentCordobes">twitter</a>
-          </li>
-          <li>
-            <a href="https://github.com/VincentCordobes">github</a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/vincentcordobes/">instagram</a>
-          </li>
-        </ul>
+        <br />
+        <p>
+          Social: <a href="https://twitter.com/VincentCordobes">twitter</a>,{' '}
+          <a href="https://github.com/VincentCordobes">github</a>,{' '}
+          <a href="https://www.instagram.com/vincentcordobes/">instagram</a>
+        </p>
+        <p>
+          📈 <Link to="/activities">Activities tracking</Link>
+        </p>
         <div>
           {':wq'.substring(0, this.state.wq)}
           {this.state.wq > 0 && <div className="vim-cursor" />}
