@@ -33,7 +33,7 @@ function initialData() {
   const currentMonth = DateTime.local().month
   return range(START_MONTH, currentMonth + 1).map(i => ({
     x: DateTime.fromObject({ month: i }).toJSDate(),
-    y: 0,
+    y: null,
   }))
 }
 
