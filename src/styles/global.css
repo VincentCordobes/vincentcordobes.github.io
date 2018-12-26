@@ -1,0 +1,174 @@
+@font-face {
+  font-family: 'serif-roman';
+  src: url('../fonts/serif-roman.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'serif-roman-slanted';
+  src: url('../fonts/serif-roman-slanted.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'sans-serif';
+  src: url('../fonts/sans-serif.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: #fafafa; */
+  color: #3d3d3d;
+  /* font-family: 'SFMono-Regular', 'space mono', Courier, monospace; */
+  font-family: 'serif-roman', serif;
+  /* font-family: 'Libre Baskerville,serif'; */
+  /* font-family: 'space mono', monospace; */
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
+  font-size: 19.4px;
+  margin: 0 auto;
+  padding: 15px;
+  /* line-height: 1.5; */
+  /* -webkit-text-size-adjust: 100% */
+}
+
+@media (max-width: 767px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+p {
+  margin: 1.21em 0;
+}
+
+#layout {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'open sans', 'sans-serif', sans-serif;
+}
+
+h1 {
+  font-size: 1.4em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+ul {
+  margin: 5px 0;
+  padding-left: 0;
+  margin-bottom: 1em;
+  list-style-type: none;
+}
+
+ul > li {
+  text-indent: 0px;
+  margin: 0.2em 0;
+}
+
+p + ul {
+  /* I want the margin between p and ul 
+  to be the same as the one between li */
+  margin-top: -1.01em;
+}
+
+code {
+  font-family: 'SFMono-Regular', Courier, monospace;
+  font-size: 16px;
+}
+
+:not(pre) > code {
+  padding: 0.1em 0.3em;
+  margin: 0;
+  background-color: rgba(27, 31, 35, 0.05);
+  border-radius: 4px;
+}
+
+hr {
+  background-color: #e1e4e8;
+  border: 0;
+  height: 1px;
+  margin: 24px 0;
+  padding: 0;
+}
+
+.vim-cursor {
+  display: inline-block;
+  background-color: #5f5f5e;
+  color: white;
+  margin-bottom: -5px;
+  margin-left: 3px;
+  width: 10px;
+  height: 18px;
+}
+
+blockquote {
+  font-family: 'serif-roman-slanted';
+  margin: 1.5em 0 1.5em 1.8em;
+  color: #5a5a5a;
+  position: relative;
+  /* font-style: italic; */
+  /* margin-left: 100px; */
+}
+
+blockquote:before {
+  color: #8c8c8c;
+  font-size: 3.6em;
+  position: absolute;
+  font-style: italic;
+  content: '\201C';
+  line-height: 1em;
+  left: -0.6em;
+  top: 0;
+}
+
+cite {
+  display: block;
+  text-align: right;
+  color: #3d3d3d;
+}
+
+cite:before {
+  content: '— ';
+}
+
+table {
+  border: 2px solid black;
+  border-left: none;
+  border-right: none;
+  border-collapse: collapse;
+  min-width: 100%;
+  margin: 2em auto;
+}
+
+@media (min-width: 576px) {
+  table {
+    min-width: 20rem;
+  }
+}
+
+th,
+td {
+  padding: 5px 10px;
+  text-align: left;
+}
+
+th {
+  border-bottom: 1px solid black;
+}

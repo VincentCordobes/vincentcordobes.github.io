@@ -1,21 +1,41 @@
 ---
 title: Hello World
-date: "2015-05-01T22:12:03.284Z"
+date: 2018-12-24
+spoiler: This is a test blog post
 ---
 
-This is my first post on my new fake blog! How exciting!
+In this personal blog I intend to write about what I learn and stuff I'm interested in.
+For this purpose, I'd like to have codeblock:
 
-I'm sure I'll write a lot more interesting things in the future.
+```ocaml
+let hello_world =
+  printf "hello world"
+```
 
-Oh, and here's a great quote from this Wikipedia on
-[salted duck eggs](http://en.wikipedia.org/wiki/Salted_duck_egg).
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.
+But also nice tables, for instance to show algorithm complexity
 
-> A salted duck egg is a Chinese preserved food product made by soaking duck
-> eggs in brine, or packing each egg in damp, salted charcoal. In Asian
-> supermarkets, these eggs are sometimes sold covered in a thick layer of salted
-> charcoal paste. The eggs may also be sold with the salted paste removed,
-> wrapped in plastic, and vacuum packed. From the salt curing process, the
-> salted duck eggs have a briny aroma, a gelatin-like egg white and a
-> firm-textured, round yolk that is bright orange-red in color.
+| Algorithm  | Average     | Worst       |
+| ---------- | ----------- | ----------- |
+| Quicksort  | Θ(n log(n)) | O(n^2)      |
+| Mergesort  | Θ(n log(n)) | O(n log(n)) |
+| Bubblesort | Θ(n^2)      | O(n^2))     |
 
-![Chinese Salty Egg](./salty_egg.jpg)
+Of course items are very important too. Here are the languages I'm interested in. pay attention to the margin between items, it has been thought carefully:
+
+- OCaml has awesome feature and it's french
+- javascript becomes better and better for the web
+- Rust is modern and looks so awesome too
+
+Last but not least quote that I might not use so often but still, it's always something nice to have in our toolbox :D
+
+> Anyone who has never made a mistake has never tried anything new.
+> <cite>Albert Einstein</cite>
+
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+no sea takimata sanctus est Lorem ipsum dolor sit amet.

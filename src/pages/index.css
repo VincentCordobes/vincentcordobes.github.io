@@ -1,0 +1,18 @@
+#post-list a {
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+}
+
+#post-list a:hover {
+  /* background: #fff5e4; */
+  color: #000;
+}
+
+#post-list li {
+  margin-bottom: 1em;
+}
+
+#post-list strong {
+  font-family: 'sans-serif', sans-serif;
+}

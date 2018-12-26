@@ -1,0 +1,31 @@
+#blog-post ul > li > a {
+  text-decoration: none;
+  color: #5e5e5e;
+  font-family: 'cmu_sans_serifmedium', sans-serif;
+}
+
+#blog-post nav > ul {
+  padding: 0;
+}
+
+#blog-post ul > li > a:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
+#blog-post-content ul {
+  padding-left: 20px;
+}
+
+#blog-post-content ul > li:before {
+  content: '—';
+  margin-right: 12px;
+}
+
+#blog-post-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+}

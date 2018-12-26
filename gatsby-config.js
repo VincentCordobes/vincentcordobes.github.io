@@ -5,6 +5,9 @@ module.exports = {
     description:
       'I am a software developer 🦁 Highly interested in functional programming',
     siteUrl: 'https://vincentcordobes.github.io',
+    social: {
+      twitter: '@VincentCordobes',
+    },
   },
   pathPrefix: '/',
   plugins: [
@@ -31,7 +34,12 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          'gatsby-remark-prismjs',
+          {
+            resolve: 'gatsby-remark-prismjs',
+            options: {
+              showLineNumbers: true,
+            },
+          },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
         ],
