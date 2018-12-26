@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import get from 'lodash/get'
+import Helmet from 'react-helmet'
 
 import Layout from '../components/layout'
 import Vim from '../components/vim'
 import SEO from '../components/seo'
 
+// import 'katex/dist/katex.min.css'
+import './../styles/prism-theme.css'
 import './blog-post.css'
 
 function Header() {
@@ -37,6 +39,14 @@ class BlogPostTemplate extends React.Component {
             description={post.frontmatter.spoiler}
             slug={post.fields.slug}
           />
+          <Helmet>
+            <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css"
+              integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y"
+              crossorigin="anonymous"
+            />
+          </Helmet>
           <Header />
           <h1>{post.frontmatter.title}</h1>
           <small style={{ display: 'block' }}>{post.frontmatter.date}</small>

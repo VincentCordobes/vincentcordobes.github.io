@@ -38,13 +38,17 @@ body {
   margin: 0 auto;
   padding: 15px;
   /* line-height: 1.5; */
-  /* -webkit-text-size-adjust: 100% */
+  -webkit-text-size-adjust: 100%;
 }
 
 @media (max-width: 767px) {
   body {
     font-size: 18px;
   }
+}
+
+.katex {
+  font-size: 1em !important;
 }
 
 p {
@@ -134,7 +138,7 @@ blockquote:before {
   font-style: italic;
   content: '\201C';
   line-height: 1em;
-  left: -0.6em;
+  left: -0.5em;
   top: 0;
 }
 

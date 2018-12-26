@@ -18,11 +18,11 @@ vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 no sea takimata sanctus est Lorem ipsum dolor sit amet.
 But also nice tables, for instance to show algorithm complexity
 
-| Algorithm  | Average     | Worst       |
-| ---------- | ----------- | ----------- |
-| Quicksort  | Θ(n log(n)) | O(n^2)      |
-| Mergesort  | Θ(n log(n)) | O(n log(n)) |
-| Bubblesort | Θ(n^2)      | O(n^2))     |
+| Algorithm  | Average             | Worst          |
+|------------|---------------------|----------------|
+| Quicksort  | $\Theta(n \log{n})$ | $O(n^2)$       |
+| Mergesort  | $\Theta(n \log{n})$ | $O(n \log{n})$ |
+| Bubblesort | $\Theta(n^2)$       | $O(n^2)$      |
 
 Of course items are very important too. Here are the languages I'm interested in. pay attention to the margin between items, it has been thought carefully:
 
@@ -39,3 +39,9 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
 tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
 vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+Oh, I almost forgot about Math inline equation: $ a^2 + b^2 = c^2 $
+
+$$
+\alpha = \dfrac{|C'S|}{|CS|} \;\;\; \beta = \dfrac{|CC'|}{|CS|}
+$$
