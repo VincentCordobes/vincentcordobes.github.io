@@ -1,6 +1,6 @@
 ---
 title: Hello World
-date: 2018-12-24
+date: 2016-12-01
 spoiler: This is a test blog post
 ---
 
@@ -16,7 +16,9 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
 tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
 vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
 no sea takimata sanctus est Lorem ipsum dolor sit amet.
+_Here is some italic text_
 But also nice tables, for instance to show algorithm complexity
+
 
 | Algorithm  | Average             | Worst          |
 |------------|---------------------|----------------|
