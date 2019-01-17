@@ -1,23 +1,23 @@
-@font-face {
-  font-family: 'serif-roman';
-  src: url('../fonts/serif-roman.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'serif-roman-slanted';
-  src: url('../fonts/serif-roman-slanted.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'sans-serif';
-  src: url('../fonts/sans-serif.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+/* @font-face { */
+/*   font-family: 'serif-roman'; */
+/*   src: url('../fonts/serif-roman.woff') format('woff'); */
+/*   font-weight: normal; */
+/*   font-style: normal; */
+/* } */
+/*  */
+/* @font-face { */
+/*   font-family: 'serif-roman-slanted'; */
+/*   src: url('../fonts/serif-roman-slanted.woff') format('woff'); */
+/*   font-weight: normal; */
+/*   font-style: normal; */
+/* } */
+/*  */
+/* @font-face { */
+/*   font-family: 'sans-serif'; */
+/*   src: url('../fonts/sans-serif.woff') format('woff'); */
+/*   font-weight: normal; */
+/*   font-style: normal; */
+/* } */
 
 *,
 *:before,
@@ -27,32 +27,39 @@
 
 body {
   /* background-color: #fafafa; */
-  color: #3d3d3d;
+  color: #3d3d3d; /* 61, 61, 61  */
+  /* color: rgb(41, 41, 41); */
+  /* color: rgb(51, 51, 51); */
   /* font-family: 'SFMono-Regular', 'space mono', Courier, monospace; */
-  font-family: 'serif-roman', serif;
+  /* font-family: 'serif-roman', serif; */
   /* font-family: 'Libre Baskerville,serif'; */
   /* font-family: 'space mono', monospace; */
-  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
-    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol; */
-  font-size: 19.4px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
+  /* font-size: 19.4px; */
+  font-size: 16px;
   margin: 0 auto;
   padding: 15px;
-  /* line-height: 1.5; */
+  /* line-height: 1.35; */
+  line-height: 1.5;
   -webkit-text-size-adjust: 100%;
 }
 
-@media (max-width: 767px) {
-  body {
-    font-size: 18px;
-  }
+.katex {
+  /* font-size: 1em !important; */
+}
+a {
+  color: #0366d6;
+  text-decoration: none;
 }
 
-.katex {
-  font-size: 1em !important;
+a:hover {
+  text-decoration: underline;
 }
 
 p {
-  margin: 1.21em 0;
+  margin: 0;
+  margin-bottom: 1em;
 }
 
 #layout {
@@ -65,43 +72,57 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'open sans', 'sans-serif', sans-serif;
+  line-height: normal;
+  margin: 0;
+  font-weight: 500;
 }
 
 h1 {
-  font-size: 1.4em;
-  margin: 0;
-  margin-bottom: 10px;
+  font-size: 2em;
 }
 
-ul {
+h2,
+h3,
+h4 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+h4 {
+  font-size: 1em;
+}
+
+ul,
+ol {
   margin: 5px 0;
   padding-left: 0;
   margin-bottom: 1em;
   list-style-type: none;
 }
 
-ul > li {
+ul > li,
+ol > li {
   text-indent: 0px;
-  margin: 0.2em 0;
+  margin: 0.3em 0;
 }
 
-p + ul {
+p + ul,
+p + ol {
   /* I want the margin between p and ul 
   to be the same as the one between li */
-  margin-top: -1.01em;
+  margin-top: -0.7em;
 }
 
-code {
-  font-family: 'SFMono-Regular', Courier, monospace;
-  font-size: 16px;
-}
-
-:not(pre) > code {
-  padding: 0.1em 0.3em;
-  margin: 0;
-  background-color: rgba(27, 31, 35, 0.05);
-  border-radius: 4px;
+ol {
+  list-style-type: decimal;
 }
 
 hr {
@@ -123,21 +144,22 @@ hr {
 }
 
 blockquote {
-  font-family: 'serif-roman-slanted';
   margin: 1.5em 0 1.5em 1.8em;
   color: #5a5a5a;
+  /* color: #8c8c8c; */
   position: relative;
-  /* font-style: italic; */
+  font-style: italic;
   /* margin-left: 100px; */
 }
 
 blockquote:before {
-  color: #8c8c8c;
+  font-family: georgia, serif;
+  /* color: #8c8c8c; */
   font-size: 3.6em;
   position: absolute;
-  font-style: italic;
   content: '\201C';
   line-height: 1em;
+  font-style: normal;
   left: -0.5em;
   top: 0;
 }
@@ -175,4 +197,45 @@ td {
 
 th {
   border-bottom: 1px solid black;
+}
+
+.mono {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+}
+
+#post-list .date {
+  color: #aaa;
+}
+
+figure {
+  margin: 0;
+  margin-bottom: 1.4em;
+}
+
+figcaption:before {
+  font-variant: small-caps;
+  /* content: 'Figure – '; */
+}
+figcaption {
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1.4em;
+}
+
+iframe {
+  border: none;
+  margin: 0 auto;
+
+  /* safari bug: iframe width is not constrained */
+  width: 1px;
+  min-width: 100%;
+  margin-bottom: 1em;
+}
+
+img {
+  max-width: 100%;
+  /* height: 100%; */
+  display: block;
+  margin: 0 auto;
 }

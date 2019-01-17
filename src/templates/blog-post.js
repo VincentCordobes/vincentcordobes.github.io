@@ -8,6 +8,7 @@ import SEO from '../components/seo'
 
 // import 'katex/dist/katex.min.css'
 import './../styles/prism-theme.css'
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import './blog-post.css'
 
 function Header() {
@@ -49,7 +50,9 @@ class BlogPostTemplate extends React.Component {
           </Helmet>
           <Header />
           <h1>{post.frontmatter.title}</h1>
-          <small style={{ display: 'block' }}>{post.frontmatter.date}</small>
+          <p>
+            <small>{post.frontmatter.date}</small>
+          </p>
           <div
             id="blog-post-content"
             dangerouslySetInnerHTML={{ __html: post.html }}

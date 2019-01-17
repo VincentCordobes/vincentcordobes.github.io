@@ -35,14 +35,15 @@ module.exports = {
             },
           },
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: `gatsby-remark-prismjs`,
             options: {
-              showLineNumbers: true,
+              showLineNumbers: false,
             },
           },
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
           'gatsby-remark-katex',
+          `gatsby-remark-figure-caption`,
         ],
       },
     },

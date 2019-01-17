@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Waypoint from 'react-waypoint'
 
 function animateWq(setWq, i) {
   setTimeout(() => {
@@ -12,15 +13,11 @@ function animateWq(setWq, i) {
 function Vim() {
   const [wq, setWq] = useState(0)
 
-  useEffect(() => {
-    const t = setTimeout(() => animateWq(setWq, 0), 1000)
-    return () => clearTimeout(t)
-  }, [])
-
   return (
     <div>
+      {wq === 0 && <Waypoint onEnter={() => animateWq(setWq, wq)} />}
       {':wq'.substring(0, wq)}
-      {wq > 0 && <div className="vim-cursor" />}
+      <div className="vim-cursor" />
     </div>
   )
 }

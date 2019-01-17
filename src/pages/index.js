@@ -5,6 +5,7 @@ import get from 'lodash/get'
 import Bio from '../components/bio'
 import SEO from '../components/seo'
 import Layout from '../components/layout'
+import Vim from '../components/vim'
 
 import './index.css'
 
@@ -14,24 +15,28 @@ const BlogIndex = props => {
     <Layout>
       <SEO />
       <Bio />
+      <p>
+        I occasionally write stuff here either in english or french, it depends
+        on the mood:
+      </p>
       <ul id="post-list">
         {posts.map(({ node }) => {
           const title = get(node, 'frontmatter.title') || node.fields.slug
+          const lang = get(node, 'frontmatter.lang')
           return (
             <li key={node.fields.slug}>
-              <div>
-                <strong>
-                  <Link to={node.fields.slug}>{title}</Link>
-                </strong>
-              </div>
-              <small>{node.frontmatter.date}</small>
-              <div
-                dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }}
-              />
+              <small className="mono date">{node.frontmatter.date}</small>
+              {' - '}
+              <Link to={node.fields.slug}>{title}</Link>
+              {lang && <small className="mono date"> ({lang}) </small>}
+              {/* <div */}
+              {/*   dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }} */}
+              {/* /> */}
             </li>
           )
         })}
       </ul>
+      {/* <Vim /> */}
     </Layout>
   )
 }
@@ -53,9 +58,10 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "DD MMMM, YYYY")
+            date(formatString: "DD MMM YYYY")
             title
             spoiler
+            lang
           }
         }
       }

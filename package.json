@@ -12,6 +12,7 @@
     "gatsby-plugin-react-helmet": "3.0.4",
     "gatsby-plugin-sharp": "2.0.15",
     "gatsby-remark-copy-linked-files": "2.0.8",
+    "gatsby-remark-figure-caption": "^2.0.0",
     "gatsby-remark-images": "3.0.1",
     "gatsby-remark-katex": "^3.0.1",
     "gatsby-remark-prismjs": "3.1.4",
@@ -28,7 +29,8 @@
     "react-chartjs-2": "^2.7.4",
     "react-dom": "^16.7.0-alpha.2",
     "react-helmet": "^5.2.0",
-    "react-pose": "^4.0.2"
+    "react-pose": "^4.0.2",
+    "react-waypoint": "^8.1.0"
   },
   "devDependencies": {
     "eslint": "^5.6.1",

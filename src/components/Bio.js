@@ -12,7 +12,7 @@ function Bio(props) {
   const [age] = useState(myAge())
   return (
     <>
-      <header>
+      <header style={{ marginBottom: '0.6em' }}>
         <h1>🦁 Vincent Cordobes</h1>
       </header>
       <p>
