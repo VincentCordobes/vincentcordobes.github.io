@@ -1,6 +1,6 @@
 ---
 title: Hello World
-date: 2016-12-01
+date: 2015-12-28
 spoiler: This is a test blog post
 ---
 
