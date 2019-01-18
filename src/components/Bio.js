@@ -23,7 +23,8 @@ function Bio(props) {
         You can find me on{' '}
         <a href="https://twitter.com/VincentCordobes">twitter</a>,{' '}
         <a href="https://github.com/VincentCordobes">github</a>,{' '}
-        <a href="https://www.instagram.com/vincentcordobes/">instagram</a>.
+        <a href="https://www.instagram.com/vincentcordobes/">instagram</a>,{' '}
+        <a href="/rss.xml">rss</a>.
       </p>
       <hr />
       {/* <br /> */}
