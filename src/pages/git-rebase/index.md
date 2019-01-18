@@ -1,15 +1,17 @@
 ---
 title: Rewrite the past in fewer steps with rebase
 date: 2019-01-18
-spoiler: Demistify git rebase with interactive animations
+spoiler: Demistify git rebase with an interactive ascii art
+thumbnail: "ascii-preview.png"
 ---
 
-🌳  _I assume in this post that you have basic knowledge about git, and that you are familiar with its index, working tree as well as commands like reset and cherry-pick_
 
 There are lots of commands in git and you can often achieve your goal in several different ways. I usually manage to get my stuff done with just few cmds like rebase, reset, cherry-pick. But sometimes I felt I was doing it ineffectively. Like for example squashing all commits into a single one so that it will be easier to rebase afterward. 
 Even though I knew that rebasing with the ` --onto` option would be useful, I never took the time to _man_ it... until recently. I guess now is a good time to write something about it.
-<!-- > Actually I just want to inaugurate my blog... any reason is a good reason ☝️ -->
 
+🌳  _I assume in this post that you have basic knowledge about git, and that you are familiar with its index, working tree as well as commands like reset and cherry-pick_
+
+<!-- > Actually I just want to inaugurate my blog... any reason is a good reason ☝️ -->
 
 ### When can the `--onto` option be useful?
 
@@ -70,7 +72,7 @@ You have created a branch _topicB_ from _topicA_  but it was a "mistake". The wo
 <iframe style="height:171px" scrolling="no" src="/git-rebase-figure2/"></iframe>
 `
 
-So naturally, you need to correct this unfortunate mistake to make _topicB_ fork from _master_.  
+So naturally, you need to rectify this unfortunate mistake to make _topicB_ fork from _master_.  
 To do so you can run:
 ```sh
 git rebase --onto master topicA topicB

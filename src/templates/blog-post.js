@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
+import get from 'lodash/get'
 
 import Layout from '../components/layout'
 import Vim from '../components/vim'
@@ -32,12 +33,15 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const { previous, next } = this.props.pageContext
 
+    const image = get(post, 'frontmatter.thumbnail.childImageSharp.sizes.src')
+
     return (
       <Layout>
         <div id="blog-post">
           <SEO
             title={post.frontmatter.title}
             description={post.frontmatter.spoiler}
+            image={image}
             slug={post.fields.slug}
           />
           <Helmet>
@@ -51,7 +55,7 @@ class BlogPostTemplate extends React.Component {
           <Header />
           <h1>{post.frontmatter.title}</h1>
           <p>
-            <small>{post.frontmatter.date}</small>
+            <small className="mono">{post.frontmatter.date}</small>
           </p>
           <div
             id="blog-post-content"
@@ -100,6 +104,15 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         spoiler
+        thumbnail {
+          childImageSharp {
+            sizes(maxWidth: 144) {
+              src
+              srcSet
+              sizes
+            }
+          }
+        }
       }
       fields {
         slug
