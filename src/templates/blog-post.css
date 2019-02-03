@@ -2,9 +2,9 @@
   padding: 0;
 }
 
-#blog-post-content {
-  overflow: hidden;
-}
+/* #blog-post-content { */
+/*   overflow: hidden; */
+/* } */
 
 #blog-post-content ol,
 #blog-post-content ul {

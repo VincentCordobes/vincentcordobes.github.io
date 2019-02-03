@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import get from 'lodash/get'
+import get from 'lodash/fp/get'
 
 import Bio from '../components/bio'
 import SEO from '../components/seo'
@@ -10,7 +10,7 @@ import Vim from '../components/vim'
 import './index.css'
 
 const BlogIndex = props => {
-  const posts = get(props, 'data.allMarkdownRemark.edges')
+  const posts = get('data.allMarkdownRemark.edges', props)
   return (
     <Layout>
       <SEO />
@@ -20,21 +20,23 @@ const BlogIndex = props => {
         on the mood:
       </p>
       <ul id="post-list">
-        {posts.map(({ node }) => {
-          const title = get(node, 'frontmatter.title') || node.fields.slug
-          const lang = get(node, 'frontmatter.lang')
-          return (
-            <li key={node.fields.slug}>
-              <small className="mono date">{node.frontmatter.date}</small>
-              {' - '}
-              <Link to={node.fields.slug}>{title}</Link>
-              {lang && <small className="mono date"> ({lang}) </small>}
-              {/* <div */}
-              {/*   dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }} */}
-              {/* /> */}
-            </li>
-          )
-        })}
+        {posts
+          .filter(({ node }) => !get('frontmatter.draft', node))
+          .map(({ node }) => {
+            const title = get('frontmatter.title', node) || node.fields.slug
+            const lang = get('frontmatter.lang', node)
+            return (
+              <li key={node.fields.slug}>
+                <small className="mono date">{node.frontmatter.date}</small>
+                {' - '}
+                <Link to={node.fields.slug}>{title}</Link>
+                {lang && <small className="mono date"> ({lang}) </small>}
+                {/* <div */}
+                {/*   dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }} */}
+                {/* /> */}
+              </li>
+            )
+          })}
       </ul>
       {/* <Vim /> */}
     </Layout>
@@ -62,6 +64,7 @@ export const pageQuery = graphql`
             title
             spoiler
             lang
+            draft
           }
         }
       }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import Helmet from 'react-helmet'
-import get from 'lodash/get'
+import get from 'lodash/fp/get'
 
 import Layout from '../components/layout'
 import Vim from '../components/vim'
@@ -33,7 +33,9 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const { previous, next } = this.props.pageContext
 
-    const image = get(post, 'frontmatter.thumbnail.childImageSharp.sizes.src')
+    const image = get('frontmatter.thumbnail.childImageSharp.sizes.src', post)
+
+    next && console.log(next.frontmatter.draft)
 
     return (
       <Layout>
@@ -74,7 +76,7 @@ class BlogPostTemplate extends React.Component {
             </li>
 
             <li>
-              {next && (
+              {next && !get('frontmatter.draft', next) && (
                 <Link to={next.fields.slug} rel="next">
                   {next.frontmatter.title} →
                 </Link>
