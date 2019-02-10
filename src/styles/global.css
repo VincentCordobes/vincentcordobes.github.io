@@ -239,3 +239,13 @@ img {
   display: block;
   margin: 0 auto;
 }
+
+strong {
+  font-weight: 600;
+}
+
+.katex-display {
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
