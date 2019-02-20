@@ -15,10 +15,7 @@ const BlogIndex = props => {
     <Layout>
       <SEO />
       <Bio />
-      <p>
-        I occasionally write stuff here either in english or french, it depends
-        on the mood:
-      </p>
+      <p>I occasionally write stuff here either in english or french:</p>
       <ul id="post-list">
         {posts
           .filter(({ node }) => !get('frontmatter.draft', node))

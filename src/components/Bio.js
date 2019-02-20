@@ -13,7 +13,7 @@ function Bio(props) {
   return (
     <>
       <header style={{ marginBottom: '0.6em' }}>
-        <h1>🦁 Vincent Cordobes</h1>
+        <h1 style={{ fontSize: '1.9em' }}>🦁 Vincent Cordobes</h1>
       </header>
       <p>
         Hi! I'm a {age} years old software engineer from France. I like
