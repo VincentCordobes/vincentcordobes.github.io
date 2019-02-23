@@ -17,23 +17,21 @@ const BlogIndex = props => {
       <Bio />
       <p>I occasionally write stuff here either in english or french:</p>
       <ul id="post-list">
-        {posts
-          .filter(({ node }) => !get('frontmatter.draft', node))
-          .map(({ node }) => {
-            const title = get('frontmatter.title', node) || node.fields.slug
-            const lang = get('frontmatter.lang', node)
-            return (
-              <li key={node.fields.slug}>
-                <small className="mono date">{node.frontmatter.date}</small>
-                {' - '}
-                <Link to={node.fields.slug}>{title}</Link>
-                {lang && <small className="mono date"> ({lang}) </small>}
-                {/* <div */}
-                {/*   dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }} */}
-                {/* /> */}
-              </li>
-            )
-          })}
+        {posts.map(({ node }) => {
+          const title = get('frontmatter.title', node) || node.fields.slug
+          const lang = get('frontmatter.lang', node)
+          return (
+            <li key={node.fields.slug}>
+              <small className="mono date">{node.frontmatter.date}</small>
+              {' - '}
+              <Link to={node.fields.slug}>{title}</Link>
+              {lang && <small className="mono date"> ({lang}) </small>}
+              {/* <div */}
+              {/*   dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }} */}
+              {/* /> */}
+            </li>
+          )
+        })}
       </ul>
       {/* <Vim /> */}
     </Layout>
@@ -49,7 +47,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { draft: { ne: true } } }
+    ) {
       edges {
         node {
           excerpt

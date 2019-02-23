@@ -55,7 +55,39 @@ module.exports = {
         trackingId: 'UA-125838540-1',
       },
     },
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        feeds: [
+          {
+            query: `
+              {
+                allMarkdownRemark(
+                  limit: 1000
+                  sort: { order: DESC, fields: [frontmatter___date] }
+                  filter: { frontmatter: { draft: { ne: true } } }
+                ) {
+                  edges {
+                    node {
+                      frontmatter {
+                        title
+                        date
+                      }
+                      fields {
+                        slug
+                      }
+                      excerpt
+                      html
+                    }
+                  }
+                }
+              }
+            `,
+            output: `rss.xml`,
+          },
+        ],
+      },
+    },
     `gatsby-plugin-react-helmet`,
   ],
 }

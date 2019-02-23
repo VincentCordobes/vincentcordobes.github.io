@@ -3,6 +3,16 @@
   "description": "My personal page",
   "version": "1.0.0",
   "author": "Vincent Cordobes<vincent.cordobes@gmail.com>",
+  "scripts": {
+    "dev": "gatsby develop",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "deploy": "gatsby build && gh-pages -d public -b master",
+    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+  },
   "dependencies": {
     "chart.js": "^2.7.2",
     "gatsby": "2.0.73",
@@ -33,24 +43,14 @@
     "react-waypoint": "^8.1.0"
   },
   "devDependencies": {
-    "eslint": "^5.6.1",
-    "eslint-plugin-react": "^7.11.1",
+    "eslint": "5.14.1",
+    "eslint-plugin-react": "7.12.4",
     "gh-pages": "^2.0.1",
-    "prettier": "^1.14.3"
+    "prettier": "1.16.4"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VincentCordobes/VincentCordobes.github.io.git"
-  },
-  "scripts": {
-    "dev": "gatsby develop",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "develop": "gatsby develop",
-    "build": "gatsby build",
-    "deploy": "gatsby build && gh-pages -d public -b master",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   }
 }
