@@ -27,11 +27,9 @@ L'algorithme Toussaint permet d'obtenir un rectangle d'aire minimum contenant un
 **Propriété : Le rectangle minimum contenant un ensemble de points a un coté parallèle avec l'un des côtés de l'enveloppe convexe de ces points.**
 
 
-<br/>
 
 ![Principe de l'algorithme de Toussaint](./calipers.svg)
 
-<br/>
 
 Cet algorithme se décompose en 7 grandes étapes :
 1. Trouver les points $P_i$, $P_j$, $P_k$, $P_l$ de l'enveloppe convexe d'abscisse minimum, d'ordonnée minimum, d'abscisse maximum, et d'ordonnée maximum 
@@ -62,7 +60,6 @@ L'algorithme Toussaint possède donc une complexité de $O(n+n) \rightarrow O(n)
 
 Nous définissons une droite par un point et un vecteur directeur.
 
-<br/>
 
 ![Intersection de deux droites dans le plan](/lines-intersection.svg)
 
@@ -160,9 +157,9 @@ Source: [wikipedia](https://en.wikipedia.org/wiki/Rotation_(mathematics))
 L'algorithme Ritter permet d'obtenir un cercle d'aire minimum contenant un ensemble de points.
 
 
+
 ![Principe de l'algorithme de Ritter](./ritter.svg)
 
-<br />
 
 1. Prendre un point dummy quelconque appartenant a l’ensemble de points de départ
 2. Parcourir l’ensemble de points pour trouver un point $P$ de distance maximum au point dummy

@@ -212,6 +212,10 @@ figure {
   margin-bottom: 1.4em;
 }
 
+#blog-post figure {
+  margin-top: 1.4em;
+}
+
 figcaption:before {
   font-variant: small-caps;
   /* content: 'Figure – '; */
