@@ -35,8 +35,6 @@ class BlogPostTemplate extends React.Component {
 
     const image = get('frontmatter.thumbnail.childImageSharp.sizes.src', post)
 
-    next && console.log(next.frontmatter.draft)
-
     return (
       <Layout>
         <div id="blog-post">
