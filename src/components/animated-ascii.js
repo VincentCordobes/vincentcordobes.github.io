@@ -170,6 +170,7 @@ function Rebase({ steps, positions, renderExtra }) {
           marginLeft: 'auto',
           userSelect: 'none',
           position: 'relative',
+          lineHeight: 1.5,
         }}
       >
         <figure
