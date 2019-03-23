@@ -44,6 +44,7 @@ module.exports = {
           'gatsby-remark-smartypants',
           'gatsby-remark-katex',
           `gatsby-remark-figure-caption`,
+          'gatsby-remark-autolink-headers',
         ],
       },
     },
