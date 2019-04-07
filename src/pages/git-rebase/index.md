@@ -66,14 +66,12 @@ The only difference is in step 1: git hard resets to <span style="background:#e
 Step 2 remains the same, commits <span style="background:#ffe5ee">upstream</span>..<span style="background:#ffefc0">branch</span> are applied. 
 
 
-#### Lets take an exemple
+#### Lets take an example
 
 You have created a branch _topicB_ from _topicA_  but it was a "mistake". The work on _topicB_ is totally unrelated to _topicA_ and thus doesn't depend on it. 
 <iframe style="height:171px" scrolling="no" src="/git-rebase-figure2/"></iframe>
-`
 
-So naturally, you need to rectify this unfortunate mistake to make _topicB_ fork from _master_.  
-To do so you can run:
+So naturally, you need to rectify this unfortunate mistake to make _topicB_ fork from _master_. To do so you can run:
 ```sh
 git rebase --onto master topicA topicB
 ```
@@ -81,7 +79,7 @@ git rebase --onto master topicA topicB
 As seen previously, step 1 is hard resetting to master, step 2 is applying commits `topicA..topicB` .
 
 
-#### Another exemple
+#### Another example
 
 I told you in the intro that we could also remove a range of commits by using this option.
 Well lets say you have a branch like the one below and want to get rid of commits _F_ and _G_. 
