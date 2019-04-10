@@ -34,15 +34,21 @@ body {
   /* font-family: 'serif-roman', serif; */
   /* font-family: 'space mono', monospace; */
   /* font-family: 'Georgia, Cambria, 'Times New Roman', serif'; */
-  /* font-size: 18px; */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   line-height: 1.625;
   text-rendering: optimizeLegibility;
   margin: 0 auto;
-  padding: 15px;
+  padding: 20px;
   -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 768px) {
+  body {
+    font-size: 17.5px;
+  }
 }
 
 .katex {

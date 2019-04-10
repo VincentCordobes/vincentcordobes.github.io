@@ -168,6 +168,7 @@ function Rebase({ steps, positions, renderExtra }) {
           width: 272,
           marginRight: 'auto',
           marginLeft: 'auto',
+          marginTop: -5,
           userSelect: 'none',
           position: 'relative',
           lineHeight: 1.5,
