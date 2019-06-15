@@ -7,11 +7,11 @@ lang: fr
 draft: false
 ---
 
-La détection de collision entre objets est un problème récurrent dans les  jeux vidéos. En 2D une comparaison de chaque pixels formant l'objet à détecter devient très couteux en termes de performance dès lors que le nombre de pixels croît ou que le nombre de collisions à détecter augmente.
+La détection de collision entre objets est un problème récurrent dans les jeux vidéos. En 2D une comparaison de chaque pixels formant l'objet à détecter devient très couteux en termes de performance dès lors que le nombre de pixels croît ou que le nombre de collisions à détecter augmente.
 
 Une autre approche consiste donc à utiliser une forme simple couvrant l'objet, qui permettra une détection plus efficace. 
 Une des formes les plus simples de détection de collision est une collision entre deux cercles. En effet, il suffit de vérifier que la distance entre le centre des deux cercles soit inférieure à la somme de leur rayon pour détecter la collision. De même, le rectangle est un conteneur permettant la détection de collision en temps constant.
-Ces formes simples nous permettent d'obtenir des détections de collision  approximatives mais avec de bonnes performances.
+Ces formes simples nous permettent d'obtenir des détections de collision approximatives mais avec de bonnes performances.
 Le polygone convexe est un meilleur conteneur dans le sens où il permet de couvrir l'objet de façon plus précise mais la détection de collision est plus complexe. En effet si nous avons deux polygones avec respectivement $m$ et $n$ cotés, alors la détection de collision entre ces deux polygones s'exécute en $O(m\times n)$
 
 Notre problématique est d'analyser la qualité de conteneurs d'un ensemble de points $\mathcal{P}$ dans le plan.
@@ -24,18 +24,18 @@ Dans cet objectif, nous étudierons 2 algorithmes distincts :
 ## Algorithme Toussaint
 L'algorithme Toussaint permet d'obtenir un rectangle d'aire minimum contenant un ensemble de points.
 
-**Propriété : Le rectangle minimum contenant un ensemble de points a un coté parallèle avec l'un des côtés de l'enveloppe convexe de ces points.**
+**Propriété : Le rectangle minimum contenant un ensemble de points a un côté parallèle avec l'un des côtés de l'enveloppe convexe de ces points.**
 
 
 
 ![Principe de l'algorithme de Toussaint](./calipers.svg)
 
 
-Cet algorithme se décompose en 7 grandes étapes :
+Cet algorithme se décompose en 7 grandes étapes :
 1. Trouver les points $P_i$, $P_j$, $P_k$, $P_l$ de l'enveloppe convexe d'abscisse minimum, d'ordonnée minimum, d'abscisse maximum, et d'ordonnée maximum 
 2. Construire les 4 droites $\Delta_i$, $\Delta_j$, $\Delta_k$, $\Delta_l$ passant respectivement par $P_i$, $P_j$, $P_k$, $P_l$ 
 3. Trouver l'angle minimum $\alpha$ formé par une droite $\Delta$ et un côté de l'enveloppe convexe 
-4. Effectuer une rotation d'angle $\alpha$ des 4 droites  
+4. Effectuer une rotation d'angle $\alpha$ des 4 droites
 5. Créer le rectangle formé par l'intersection des droites 
 6. Calculer l'aire du rectangle et mettre à jour le rectangle minimum si besoin 
 7. Calculer les nouveaux angles après rotation et répéter les étapes 3-6 pour tous les côtés de l'enveloppe convexe
