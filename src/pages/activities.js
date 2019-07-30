@@ -4,18 +4,15 @@ import { DateTime } from 'luxon'
 import map from 'lodash/fp/map'
 import groupBy from 'lodash/fp/groupBy'
 import mapValues from 'lodash/fp/mapValues'
-import sum from 'lodash/fp/sum'
 import filter from 'lodash/fp/filter'
 import size from 'lodash/fp/size'
 import toPairs from 'lodash/fp/toPairs'
 import identity from 'lodash/fp/identity'
 import range from 'lodash/fp/range'
-import sortBy from 'lodash/fp/sortBy'
-import Chart from 'chart.js'
 import { Line } from 'react-chartjs-2'
 
 const FILE_URL =
-  'https://cors-anywhere.herokuapp.com/www.dropbox.com/s/dpbdlobcf6y1snn/workout.gpi?raw=1'
+  'https://dl.dropboxusercontent.com/s/dpbdlobcf6y1snn/workout.gpi?raw=1'
 
 function buildDataset(data) {
   const line = {
