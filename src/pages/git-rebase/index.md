@@ -37,6 +37,11 @@ git rebase upstream [branch]
 I am gonna give some examples and intentionally avoid any short-hand way at first.
 
 <iframe style="height:125px" scrolling="no" src="/git-rebase-figure1/"></iframe>
+<!-- I am gonna give some examples and intentionally  -->
+<!-- I'll intentionally avoid any short-hand way at first. -->
+<!-- The ASCII art schema is animated, you can click on it to go through the steps. -->
+<!-- Let's say you have forked a _topic_ branch from _master B_ but master has evolve and you want to update the_topic_ branch according to master -->
+
 
 <!-- When you run the command `git rebase master topic` then: -->
 When we run the command <code class="language-text">git rebase <span style="background:#ffe5ee">master</span> <span style="background:#ffefc0">topic</span></code> then:
