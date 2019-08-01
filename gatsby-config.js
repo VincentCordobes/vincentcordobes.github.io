@@ -1,9 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "Vincent's page",
+    title: 'Vincent Cordobes',
     author: 'Vincent Cordobes',
-    description:
-      'I am a software developer 🦁 Highly interested in functional programming',
+    description: 'Personal blog by Vincent Cordobes. I write mostly about software development',
     siteUrl: 'https://vincentcordobes.github.io',
     social: {
       twitter: '@VincentCordobes',
