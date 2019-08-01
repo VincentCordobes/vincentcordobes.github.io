@@ -235,7 +235,7 @@ figure {
 
 figcaption:before {
   font-variant: small-caps;
-  /* content: 'Figure – '; */
+  content: 'Figure – ';
 }
 figcaption {
   text-align: center;
