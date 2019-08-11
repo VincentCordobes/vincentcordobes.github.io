@@ -8,7 +8,6 @@ import filter from 'lodash/fp/filter'
 import size from 'lodash/fp/size'
 import toPairs from 'lodash/fp/toPairs'
 import identity from 'lodash/fp/identity'
-import range from 'lodash/fp/range'
 import { Line } from 'react-chartjs-2'
 
 const FILE_URL =
@@ -26,12 +25,21 @@ function buildDataset(data) {
 }
 
 function initialData() {
-  const START_MONTH = 4 // April
-  const currentMonth = DateTime.local().month
-  return range(START_MONTH, currentMonth + 1).map(i => ({
-    x: DateTime.fromObject({ month: i }).toJSDate(),
-    y: null,
-  }))
+  const startDate = DateTime.fromObject({ month: 4, year: 2018 })
+  const currentDate = DateTime.local()
+
+  let initialData = []
+  for (
+    let month = startDate;
+    month < currentDate;
+    month = month.plus({ month: 1 })
+  ) {
+    initialData.push({
+      x: month.toJSDate(),
+      y: 0,
+    })
+  }
+  return initialData
 }
 
 class Activities extends React.Component {
@@ -75,18 +83,21 @@ class Activities extends React.Component {
     const { data } = this.state
     return (
       <Layout>
-        <Line
-          data={buildDataset(data)}
-          width={200}
-          height={200}
-          options={LINE_OPTIONS}
-        />
+        <div style={{ width: 500, height: 500 }}>
+          <Line
+            data={buildDataset(data)}
+            height="500"
+            width="500"
+            options={LINE_OPTIONS}
+          />
+        </div>
       </Layout>
     )
   }
 }
 
 const LINE_OPTIONS = {
+  responsive: true,
   scales: {
     xAxes: [{ type: 'time', display: true }],
     yAxes: [

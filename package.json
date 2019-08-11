@@ -1,5 +1,5 @@
 {
-  "name": "vincent-cordobes-page",
+  "name": "vincent-cordobes",
   "description": "My personal page",
   "version": "1.0.0",
   "author": "Vincent Cordobes<vincent.cordobes@gmail.com>",
@@ -49,7 +49,7 @@
     "gh-pages": "^2.0.1",
     "prettier": "1.16.4"
   },
-  "license": "MIT",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VincentCordobes/VincentCordobes.github.io.git"
