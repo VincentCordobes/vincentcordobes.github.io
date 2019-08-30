@@ -8,6 +8,7 @@ import filter from 'lodash/fp/filter'
 import size from 'lodash/fp/size'
 import toPairs from 'lodash/fp/toPairs'
 import identity from 'lodash/fp/identity'
+import get from 'lodash/fp/get'
 import { Line } from 'react-chartjs-2'
 
 const FILE_URL =
@@ -61,6 +62,7 @@ class Activities extends React.Component {
       .then(text => text.split('\n'))
       .then(lines => lines.slice(2))
       .then(filter(identity))
+      .then(map(line => line.split(' ')[0]))
       .then(map(DateTime.fromISO))
       .then(map(date => date.toFormat('yyyy MM')))
       .then(groupBy(identity))
