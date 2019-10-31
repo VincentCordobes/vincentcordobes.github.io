@@ -9,14 +9,14 @@ draft: true
 The essence of programming is composition.  In the OOP paradigm we are building sofware by using Object that communicates with each other. To build bigger software we compose those objects.
 
 In FP the building block is a function! Each function operates on data.
-The software is made using functions and we compose them to build bigger software.
+The software is made using functions, and we compose them to build bigger software.
 
-What is functional programming? what are those principles?
+What is functional programming? What are those principles?
 Gonna talk here about the very basics of FP using the functional language OCaml
 
-FP see more programming in a mathematical way.
+FP see programming in a mathematical way.
 
-major difference between functional languages and imperative languages is
+Major difference between functional languages and imperative languages is
 
 ### Expression vs Statements
 
@@ -42,7 +42,7 @@ const res =
   }
 ```
 
-Same goes for statements `for`, `while`, `switch`, `try ... catch`, `break` etc... That's a lot of keywords for a single language 😜 
+Same goes for statements `for`, `while`, `switch`, `try ... catch`, `break` etc... Lot of keywords for a single language 😜 
 
 
 
@@ -210,29 +210,30 @@ Those two examples `map`, `fold` are so useful that they exist on many many othe
 
 We can see that both `map` et `fold_left` return the same kind of things--a list. This is quite convenient as it allows us to chain multiple operations.
 ```ocaml
-let magic_numbers =  
+let total =  
   [1; 2; 3]
   |> List.map double
   |> List.fold_left (+) 0 
-(* val magic_numbers : int = 12 *)
+(* val total : int = 12 *)
 ```
 Note that `|>` is named _pipeline operator_, it pipes a value into a function. It could be defined like `let (|>) x f = f x` and is left-associative.
 Alternatively, we could write the above code like that:
 ```ocaml
 (* Inline, boouh *)
-let magic_numbers =  List.fold_left (+) 0 (List.map double [1; 2; 3])
+let total =  List.fold_left (+) 0 (List.map double [1; 2; 3])
 
 (* with intermediate values *)
 let doubles =  List.map double [1; 2; 3]
-let magic_numbers = List.fold_left (+) 0 doubles
+let total = List.fold_left (+) 0 doubles
 ```
 
-Personnaly I like the pipe version, it's nice and readable and feels like the data flows through the functions 💧 When the output of one function feeds the input of another, we start seeing the beauty of composition. That's what we will see right now.
+Personnaly I like the pipe version, it's nice and readable and feels like the data flows through the functions. When the output of one function match the input of another, we start seeing the beauty of composition. That's what we will see right now.
 
 ### Composition
 
-The idea of composition is to create new _things_ by combining other _things_.
-This is essential in software development as we don't want to reinvent the wheel everytime. In the functional programming world, we compose functions--the building block--to make new functions.
+Composition means creating new _things_ by combining other _things_.
+In the functional programming world, we compose functions--the building block--to make new functions.
+
 
 #### The more functional Math view
 
@@ -243,6 +244,80 @@ compose smaller functions into a larger one
 means input of one function must fit with the output of the other. Statically typed languages like OCaml ensure that's the case. 
 otherwise we may want to leverage some techniques (functor, monad, etc) to compose them
 
+As a function returns only one result, it also means we can compose functions that takes only one argument.
+But what if the function takes multiple arguments? 
+That's where currying comes into play!
 
 
-### Curryfication
+
+`|> ` is application reversed
+There is no built-in operator but we can define one like so:
+```ocaml
+let (<<) f g x = f(g(x));;
+```
+
+
+### Currying
+
+Not talking about food here ;)
+
+By the way, what are all those arrows in the function type signatures? Currying! 
+
+**Currying turns a multi-parameters function into a serie of one parameter function.**
+
+In ML languages functions are curried.
+Which means the two following code are equivalents:
+```ocaml
+let add a b = a + b
+(* val add : int -> int -> int *)
+
+let add = (fun a -> (fun b -> a + b))
+(* val add : int -> int -> int *)
+```
+
+Notice how the two signatures looks the same `int -> int -> int`.
+In fact, the former is just a syntactic sugar of the latter.
+
+It feels pretty normal for us that a function returns one and only result. If some wants to return more than one, we would use a tuple or record etc... 
+
+Well, from a FP point of view, it is the same for arguments.
+```ocaml
+arg1 -> arg2 -> arg3 -> result
+```
+Curried functions are so easy to compose due to the one-result/one-argument. 
+Look at this for example:
+
+```ocaml
+let build_door = cut_wood << chop_wood(🔨) 🌳
+```
+We have two functions `chop_wood` and `cut_wood` with different arities, respectively two and one.
+```ocaml
+let chop_wood tool trees = ...
+let cut_wood wood = 
+```
+Thanks to currying we can compose them.
+
+
+
+
+
+We also get partial application for free.
+Which allows us to specialize a function
+
+
+
+Let's see for example the `add` function:
+```ocaml
+let add a b = a + b
+(* val add : int -> int -> int *)
+
+(* when applying the first argument 5 we get
+a new function expecting the 2nd argument *)
+let addFive = add 5
+(* val addFive : int -> int *)
+
+(* when we give it that second argument, we get the result *)
+let six = addFive 6
+(* val six : int *)
+```
+
