@@ -47,7 +47,7 @@ body {
 
 @media (min-width: 768px) {
   body {
-    font-size: 17.5px;
+    font-size: 18px;
   }
 }
 
@@ -69,18 +69,18 @@ p {
 }
 
 #layout {
-  max-width: 42rem;
+  max-width: 40.25rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 @media (min-width: 1024px) {
   #layout {
-    max-width: 48rem;
+    max-width: 46rem;
   }
 
   #container {
-    width: 87.5%; /* width x 48 = 42*/
+    width: 87.5%; /* width x 46 = 40.25*/
   }
 }
 
@@ -101,7 +101,7 @@ h2,
 h3,
 h4 {
   margin-top: 1.5em;
-  margin-bottom: 0.625em;
+  margin-bottom: 0.5em;
 }
 
 h2 {

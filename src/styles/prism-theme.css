@@ -20,6 +20,7 @@ pre[class*='language-'] {
   /* border: 0.5px solid #ddd; */
   border-radius: 3px;
   background: #fafafa;
+  border: 1px solid #eee;
 }
 
 /* Inline code */
