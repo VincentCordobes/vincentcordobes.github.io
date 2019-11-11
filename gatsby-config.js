@@ -2,7 +2,8 @@ module.exports = {
   siteMetadata: {
     title: 'Vincent Cordobes',
     author: 'Vincent Cordobes',
-    description: 'Personal blog by Vincent Cordobes. I write mostly about software development',
+    description:
+      'Personal blog by Vincent Cordobes. I write mostly about software development',
     siteUrl: 'https://vincentcordobes.github.io',
     social: {
       twitter: '@VincentCordobes',
@@ -95,6 +96,7 @@ module.exports = {
               }
             `,
             output: `rss.xml`,
+            title: 'Vincent Cordobes feed',
           },
         ],
       },
