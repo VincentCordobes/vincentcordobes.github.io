@@ -82,6 +82,9 @@ class BlogPostTemplate extends React.Component {
             </li>
           </ul>
         </div>
+        <div className="author">
+          Written by <strong>{this.props.data.site.siteMetadata.author}</strong>
+        </div>
       </Layout>
     )
   }
