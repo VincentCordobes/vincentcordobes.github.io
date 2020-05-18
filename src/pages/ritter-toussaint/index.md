@@ -1,7 +1,7 @@
 ---
 title: Cercle et rectangle minimum
 date: 2016-12-20
-spoiler: Analyse des conteneurs obtenus via les algorithmes de Ritter et de Toussaint
+description: Analyse des conteneurs obtenus via les algorithmes de Ritter et de Toussaint
 thumbnail: "thumbnail.png"
 lang: fr
 draft: false

@@ -1,7 +1,7 @@
 ---
 title: A way to approach a problem
 date: 2019-01-31
-spoiler: My take on TDD
+description: My take on TDD
 lang: en
 draft: true
 ---

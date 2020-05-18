@@ -1,7 +1,7 @@
 ---
 title: Architecture Redux
 date: 2016-06-17
-spoiler: Des bons concepts
+description: Des bons concepts
 lang: fr
 ---
 

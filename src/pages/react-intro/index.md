@@ -1,7 +1,7 @@
 ---
 title: Introduction à React
 date: 2016-06-06
-spoiler: Une belle idée
+description: Une belle idée
 lang: fr
 ---
 

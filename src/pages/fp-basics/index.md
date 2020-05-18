@@ -1,7 +1,7 @@
 ---
 title: Basics of Functional Programming
 date: 2019-01-31
-spoiler: Gonna talk about basics of fp
+description: Gonna talk about basics of fp
 lang: en
 draft: true
 ---

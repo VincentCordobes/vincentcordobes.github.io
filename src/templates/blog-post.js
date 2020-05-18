@@ -40,7 +40,7 @@ class BlogPostTemplate extends React.Component {
         <div id="blog-post">
           <SEO
             title={post.frontmatter.title}
-            description={post.frontmatter.spoiler}
+            description={post.frontmatter.description}
             image={image}
             slug={post.fields.slug}
           />
@@ -106,7 +106,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")
-        spoiler
+        description
         thumbnail {
           childImageSharp {
             sizes(maxWidth: 144) {

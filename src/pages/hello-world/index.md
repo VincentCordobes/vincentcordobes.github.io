@@ -1,7 +1,7 @@
 ---
 title: Hello World
 date: 2015-12-28
-spoiler: This is a test blog post
+description: This is a test blog post
 ---
 
 In this personal blog I intend to write about what I learn and stuff I'm interested in.

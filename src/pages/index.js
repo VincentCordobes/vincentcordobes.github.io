@@ -27,7 +27,7 @@ const BlogIndex = props => {
               <Link to={node.fields.slug}>{title}</Link>
               {lang && <small className="mono date"> ({lang}) </small>}
               {/* <div */}
-              {/*   dangerouslySetInnerHTML={{ __html: node.frontmatter.spoiler }} */}
+              {/*   dangerouslySetInnerHTML={{ __html: node.frontmatter.description }} */}
               {/* /> */}
             </li>
           )
@@ -60,7 +60,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "DD MMM YYYY")
             title
-            spoiler
+            description
             lang
             draft
           }
