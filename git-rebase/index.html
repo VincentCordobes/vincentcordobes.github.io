@@ -66,7 +66,7 @@ git rebase upstream [branch]
 <p>Here is what happens:</p>
 <ol start="0">
 <li>Git performs a <code class="language-text">checkout topic</code></li>
-<li>The index and working tree are reset to master (like <code class="language-text">reset --hard master</code>) Commits in topic but not in master—namely X, Y, Z—are put aside for later use</li>
+<li>The index and working tree are reset to master (<code class="language-text">reset --hard master</code>) Commits in topic but not in master—namely X, Y, Z—are put aside for later use</li>
 <li>Those commits are applied one by one on master. This is like “cherry-picking” them.</li>
 </ol>
 <p><strong>Note</strong> If we already are on the <em>topic</em> branch (<em>HEAD</em> → <em>topic</em>) then we can omit the <span style="background:#ffefc0">branch</span> arg and just type <code class="language-text">git rebase master</code> (step 0 is skipped) This is a common short-hand.</p>
