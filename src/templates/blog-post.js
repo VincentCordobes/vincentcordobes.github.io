@@ -3,6 +3,7 @@ import { Link, graphql } from "gatsby"
 import Helmet from "react-helmet"
 import get from "lodash/fp/get"
 
+import { schemaOrg } from "../components/schema-org"
 import Layout from "../components/layout"
 import Vim from "../components/vim"
 import SEO from "../components/seo"
@@ -31,17 +32,25 @@ function Header() {
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
+    const { siteMetadata } = this.props.data.site
     const { previous, next } = this.props.pageContext
 
-    const image = get("frontmatter.thumbnail.childImageSharp.sizes.src", post)
+    const imageUrl = get(
+      "frontmatter.thumbnail.childImageSharp.sizes.src",
+      post
+    )
+
+    const { author, siteUrl } = siteMetadata
+    const { title, description, date, lang } = post.frontmatter
 
     return (
       <Layout>
         <div id="blog-post">
           <SEO
-            title={post.frontmatter.title}
-            description={post.frontmatter.description}
-            image={image}
+            title={title}
+            description={description}
+            image={imageUrl}
+            author={author}
             slug={post.fields.slug}
           />
           <Helmet>
@@ -51,11 +60,25 @@ class BlogPostTemplate extends React.Component {
               integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y"
               crossorigin="anonymous"
             />
+
+            <script type="application/ld+json">
+              {JSON.stringify(
+                schemaOrg({
+                  title,
+                  description: description,
+                  image: siteMetadata.siteUrl + imageUrl,
+                  author,
+                  datePublished: date,
+                  siteUrl,
+                  lang,
+                })
+              )}
+            </script>
           </Helmet>
           <Header />
           <h1>{post.frontmatter.title}</h1>
           <p>
-            <small className="mono">{post.frontmatter.date}</small>
+            <small className="mono">{date}</small>
           </p>
           <div
             id="blog-post-content"
@@ -83,7 +106,7 @@ class BlogPostTemplate extends React.Component {
           </ul>
         </div>
         <div className="author">
-          Written by <strong>{this.props.data.site.siteMetadata.author}</strong>
+          Written by <strong>{author}</strong>
         </div>
       </Layout>
     )
@@ -97,6 +120,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
         author
       }
     }

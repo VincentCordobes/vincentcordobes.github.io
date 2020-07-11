@@ -8,7 +8,6 @@ import filter from "lodash/fp/filter"
 import size from "lodash/fp/size"
 import toPairs from "lodash/fp/toPairs"
 import identity from "lodash/fp/identity"
-import get from "lodash/fp/get"
 import { Line } from "react-chartjs-2"
 
 const FILE_URL =

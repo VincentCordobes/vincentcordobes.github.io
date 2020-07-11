@@ -19,27 +19,30 @@ const query = graphql`
   }
 `
 
-function SEO({ image, title, description, slug }) {
+function SEO({ image, description, slug, ...props }) {
   const data = useStaticQuery(query)
 
   const { siteMetadata } = data.site
   const metaDescription = description || siteMetadata.description
   const metaImage = image ? `${siteMetadata.siteUrl}${image}` : null
   const url = `${siteMetadata.siteUrl}${slug}`
+  const title = props.title || siteMetadata.title
 
   return (
     <Helmet>
       <title>
-        {title ? `${title} | ${siteMetadata.title}` : siteMetadata.title}
+        {props.title
+          ? `${props.title} | ${siteMetadata.title}`
+          : siteMetadata.title}
       </title>
       <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title || siteMetadata.title} />
+      <meta property="og:title" content={title} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:site_name" content={siteMetadata.title} />
       <meta property="og:image" content={metaImage} />
       <meta property="og:type" content="article" />
       <meta property="og:url" content={url} />
-      <meta name="twitter:title" content={title || siteMetadata.title} />
+      <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:card" content={"summary"} />
       <meta name="twitter:site" content={siteMetadata.social.twitter} />
@@ -62,10 +65,12 @@ SEO.defaultProps = {
 
 SEO.propTypes = {
   description: PropTypes.string,
+  datePublished: PropTypes.string,
   image: PropTypes.string,
   meta: PropTypes.array,
   slug: PropTypes.string,
   title: PropTypes.string.isRequired,
+  lang: PropTypes.string,
 }
 
 export default SEO
