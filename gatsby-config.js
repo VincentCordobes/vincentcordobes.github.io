@@ -1,21 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: 'Vincent Cordobes',
-    author: 'Vincent Cordobes',
+    title: "Vincent Cordobes",
+    author: "Vincent Cordobes",
     description:
-      'Personal blog by Vincent Cordobes. I write mostly about software development',
-    siteUrl: 'https://vincentcordobes.github.io',
+      "Personal blog by Vincent Cordobes. I write mostly about software development",
+    siteUrl: "https://vincentcordobes.github.io",
     social: {
-      twitter: '@VincentCordobes',
+      twitter: "@VincentCordobes",
     },
   },
-  pathPrefix: '/',
+  pathPrefix: "/",
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/pages`,
-        name: 'pages',
+        name: "pages",
       },
     },
     {
@@ -40,11 +40,11 @@ module.exports = {
               showLineNumbers: false,
             },
           },
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-          'gatsby-remark-katex',
+          "gatsby-remark-copy-linked-files",
+          "gatsby-remark-smartypants",
+          "gatsby-remark-katex",
           `gatsby-remark-figure-caption`,
-          'gatsby-remark-autolink-headers',
+          "gatsby-remark-autolink-headers",
         ],
       },
     },
@@ -53,7 +53,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-125838540-1',
+        trackingId: "UA-125838540-1",
       },
     },
     {
@@ -62,13 +62,13 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
+              return allMarkdownRemark.edges.map((edge) => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
-                  custom_elements: [{ 'content:encoded': edge.node.html }],
+                  custom_elements: [{ "content:encoded": edge.node.html }],
                 })
               })
             },
@@ -96,7 +96,7 @@ module.exports = {
               }
             `,
             output: `rss.xml`,
-            title: 'Vincent Cordobes feed',
+            title: "Vincent Cordobes feed",
           },
         ],
       },
