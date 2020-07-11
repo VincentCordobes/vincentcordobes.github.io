@@ -1,7 +1,7 @@
 ---
 title: Architecture Redux
 date: 2016-06-17
-description: Des bons concepts
+description: Redux est une bibliothèque permettant de gérer l'état d'une application
 lang: fr
 ---
 

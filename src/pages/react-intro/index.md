@@ -1,7 +1,7 @@
 ---
 title: Introduction à React
 date: 2016-06-06
-description: Une belle idée
+description: React est une bibliothèque permettant de créer des interfaces utilisateurs
 lang: fr
 ---
 

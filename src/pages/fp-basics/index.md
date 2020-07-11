@@ -1,7 +1,7 @@
 ---
 title: Basics of Functional Programming
 date: 2019-01-31
-description: Gonna talk about basics of fp
+description: Let's talk about some fundamental functional programming principles
 lang: en
 draft: true
 ---

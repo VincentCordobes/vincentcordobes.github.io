@@ -1,7 +1,7 @@
 ---
 title: Demystify git rebase with animations
 date: 2019-01-18
-description: Interactive ASCII arts to understand git rebase
+description: Let's see how git-rebase works with nice animated ASCII arts
 thumbnail: "ascii-preview.png"
 ---
 
