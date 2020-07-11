@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import ReactDOM from 'react-dom'
-import posed, { PoseGroup } from 'react-pose'
-import { reverse, range } from 'lodash/fp'
-import Layout from '../components/layout'
+import React, { useState, useEffect } from "react"
+import ReactDOM from "react-dom"
+import posed, { PoseGroup } from "react-pose"
+import { reverse, range } from "lodash/fp"
+import Layout from "../components/layout"
 
 // specify for each step buildIn et buildOut
 // it might be enough to trick to animation
@@ -50,7 +50,7 @@ function Rebase() {
         }}
       >
         back
-      </button>{' '}
+      </button>{" "}
       <button
         onClick={() => {
           setStep((step + 1) % steps.length)
@@ -64,7 +64,7 @@ function Rebase() {
 }
 
 const Box = posed.div({
-  initialPose: 'closed',
+  initialPose: "closed",
   // closed: { staggerChildren: 25 },
 
   open: {
@@ -75,18 +75,18 @@ const Box = posed.div({
 const Item = posed.div({
   open: {
     scale: 1,
-    transition: { type: 'spring', stiffness: 300 },
+    transition: { type: "spring", stiffness: 300 },
   },
   closed: {
     scale: 0,
-    transition: { type: 'spring', stiffness: 50 },
+    transition: { type: "spring", stiffness: 50 },
   },
 })
 
 function CommitTree({ motif }) {
-  return motif.split('').map((c, i) => (
+  return motif.split("").map((c, i) => (
     <Item style={{ fontSize: 20 }} key={`c${i}`}>
-      {c === ' ' ? '\u00A0' : c}
+      {c === " " ? "\u00A0" : c}
     </Item>
   ))
 }
@@ -110,18 +110,18 @@ const Ascii = ({ value, displayed }) => {
   return (
     <Box
       style={{
-        display: 'flex',
-        flexDirection: 'column-reverse',
+        display: "flex",
+        flexDirection: "column-reverse",
       }}
-      pose={displayed ? 'open' : 'closed'}
+      pose={displayed ? "open" : "closed"}
     >
       <PoseGroup>
         {value
-          .split('\n')
+          .split("\n")
           .filter(Boolean)
           .reverse()
-          .map(line => (
-            <AsciiLine key={line} style={{ display: 'flex' }}>
+          .map((line) => (
+            <AsciiLine key={line} style={{ display: "flex" }}>
               <CommitTree motif={line} />
             </AsciiLine>
           ))}

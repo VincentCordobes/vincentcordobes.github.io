@@ -1,3 +1,7 @@
 function schemaOrg() {
-  return {}
+  const schema = {
+    "@context": "http://schema.org",
+    "@type": "BlogPosting",
+  }
+  return schema
 }

@@ -1,10 +1,10 @@
-import React, { useState, useEffect, forwardRef } from 'react'
-import posed, { PoseGroup } from 'react-pose'
-import Layout from '../components/layout'
+import React, { useState, useEffect, forwardRef } from "react"
+import posed, { PoseGroup } from "react-pose"
+import Layout from "../components/layout"
 import AnimatedAscii, {
   Somewhere,
   withCounter,
-} from '../components/animated-ascii'
+} from "../components/animated-ascii"
 
 const Figure1 = () => {
   const steps = [
@@ -33,13 +33,13 @@ A---B  master`,
     <AnimatedAscii
       steps={steps}
       positions={positions}
-      renderExtra={stepNumber =>
+      renderExtra={(stepNumber) =>
         stepNumber == 1 &&
-        withCounter(count => (
+        withCounter((count) => (
           <Somewhere
             exitX={-30}
             exitY={-15}
-            transform={'translate(68px, -94px)'}
+            transform={"translate(68px, -94px)"}
             key={`somewhere${count}`}
           >
             E---F

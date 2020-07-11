@@ -1,16 +1,16 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-import Helmet from 'react-helmet'
-import get from 'lodash/fp/get'
+import React from "react"
+import { Link, graphql } from "gatsby"
+import Helmet from "react-helmet"
+import get from "lodash/fp/get"
 
-import Layout from '../components/layout'
-import Vim from '../components/vim'
-import SEO from '../components/seo'
+import Layout from "../components/layout"
+import Vim from "../components/vim"
+import SEO from "../components/seo"
 
 // import 'katex/dist/katex.min.css'
-import './../styles/prism-theme.css'
-import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
-import './blog-post.css'
+import "./../styles/prism-theme.css"
+import "prismjs/plugins/line-numbers/prism-line-numbers.css"
+import "./blog-post.css"
 
 function Header() {
   return (
@@ -33,7 +33,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const { previous, next } = this.props.pageContext
 
-    const image = get('frontmatter.thumbnail.childImageSharp.sizes.src', post)
+    const image = get("frontmatter.thumbnail.childImageSharp.sizes.src", post)
 
     return (
       <Layout>
@@ -74,7 +74,7 @@ class BlogPostTemplate extends React.Component {
             </li>
 
             <li>
-              {next && !get('frontmatter.draft', next) && (
+              {next && !get("frontmatter.draft", next) && (
                 <Link to={next.fields.slug} rel="next">
                   {next.frontmatter.title} →
                 </Link>

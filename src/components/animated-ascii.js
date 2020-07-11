@@ -1,12 +1,12 @@
-import React, { useState, useEffect, forwardRef } from 'react'
-import posed, { PoseGroup } from 'react-pose'
-import Layout from '../components/layout'
+import React, { useState, useEffect, forwardRef } from "react"
+import posed, { PoseGroup } from "react-pose"
+import Layout from "../components/layout"
 
 // Don't look at this please this is an
 // MVP of smth but it's absolutely horrible
 // You have been warned...
 
-const transition = { type: 'spring', stiffness: 300, damping: 50 }
+const transition = { type: "spring", stiffness: 300, damping: 50 }
 
 const Line = posed.div({
   pre: {
@@ -47,9 +47,9 @@ export const Somewhere = posed(
       <div
         style={{
           fontSize: 13,
-          color: '#b1b1b1',
-          position: 'absolute',
-          margin: 'auto',
+          color: "#b1b1b1",
+          position: "absolute",
+          margin: "auto",
           transform,
         }}
       >
@@ -94,45 +94,47 @@ const buildStat = (() => {
 
 export const withCounter = (() => {
   let counter = 0
-  return fn => fn(counter++)
+  return (fn) => fn(counter++)
 })()
 
-const steps = prefix => [
+const steps = (prefix) => [
   [
-    buildLine({ ascii: '      X---Y---Z  topic', preX: 40, exitX: -87 }),
-    buildLine({ ascii: '     /', preX: 40, exitX: 32 }),
-    buildStat({ ascii: 'A---B---C  master' }),
+    buildLine({ ascii: "      X---Y---Z  topic", preX: 40, exitX: -87 }),
+    buildLine({ ascii: "     /", preX: 40, exitX: 32 }),
+    buildStat({ ascii: "A---B---C  master" }),
   ],
   [
-    buildLine({ ascii: '        topic', preX: 87, exitX: 50 }),
-    buildLine({ ascii: '        ↓', preX: -32, exitX: 10 }),
-    buildStat({ ascii: 'A---B---C  master' }),
+    buildLine({ ascii: "        topic", preX: 87, exitX: 50 }),
+    buildLine({ ascii: "        ↓", preX: -32, exitX: 10 }),
+    buildStat({ ascii: "A---B---C  master" }),
     <Somewhere key={`somewhere${prefix}`}>X---Y---Z</Somewhere>,
   ],
   [
     buildLine({ ascii: "          X'--Y'--Z' topic", preX: -40, exitX: -40 }),
-    buildLine({ ascii: '         /', preX: -10, exitX: -40 }),
-    buildStat({ ascii: 'A---B---C  master' }),
+    buildLine({ ascii: "         /", preX: -10, exitX: -40 }),
+    buildStat({ ascii: "A---B---C  master" }),
   ],
 ]
 
 const buildAnimatedAscii = ({ steps, positions, renderExtra }) => {
-  const stepsLines = steps.map(ascii => {
-    const [_, ...rest] = ascii.split('\n')
+  const stepsLines = steps.map((ascii) => {
+    const [_, ...rest] = ascii.split("\n")
     return rest
   })
 
   const missingPosition = positions.some(
-    linePosition =>
+    (linePosition) =>
       linePosition.length !== stepsLines.length && linePosition.length > 0
   )
   if (missingPosition) {
-    throw new Error('There must be positions for each steps!')
+    throw new Error("There must be positions for each steps!")
   }
 
-  const m = stepsLines.every(stepLines => stepLines.length === positions.length)
+  const m = stepsLines.every(
+    (stepLines) => stepLines.length === positions.length
+  )
   if (!m) {
-    throw new Error('Positions.length must be equal to the number of lines')
+    throw new Error("Positions.length must be equal to the number of lines")
   }
 
   return stepsLines
@@ -166,16 +168,16 @@ function Rebase({ steps, positions, renderExtra }) {
       <div
         style={{
           width: 272,
-          marginRight: 'auto',
-          marginLeft: 'auto',
+          marginRight: "auto",
+          marginLeft: "auto",
           marginTop: -5,
-          userSelect: 'none',
-          position: 'relative',
+          userSelect: "none",
+          position: "relative",
           lineHeight: 1.5,
         }}
       >
         <figure
-          style={{ cursor: 'pointer' }}
+          style={{ cursor: "pointer" }}
           onClick={() => setStep((step + 1) % steps.length)}
         >
           <div className="mono" style={{ fontSize: 16 }}>
@@ -193,7 +195,7 @@ function Rebase({ steps, positions, renderExtra }) {
 }
 
 function normalize(text) {
-  return text.replace(/\s/g, '\u00A0')
+  return text.replace(/\s/g, "\u00A0")
 }
 
 export default Rebase

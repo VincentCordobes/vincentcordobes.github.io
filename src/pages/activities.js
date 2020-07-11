@@ -1,25 +1,25 @@
-import React from 'react'
-import Layout from '../components/layout'
-import { DateTime } from 'luxon'
-import map from 'lodash/fp/map'
-import groupBy from 'lodash/fp/groupBy'
-import mapValues from 'lodash/fp/mapValues'
-import filter from 'lodash/fp/filter'
-import size from 'lodash/fp/size'
-import toPairs from 'lodash/fp/toPairs'
-import identity from 'lodash/fp/identity'
-import get from 'lodash/fp/get'
-import { Line } from 'react-chartjs-2'
+import React from "react"
+import Layout from "../components/layout"
+import { DateTime } from "luxon"
+import map from "lodash/fp/map"
+import groupBy from "lodash/fp/groupBy"
+import mapValues from "lodash/fp/mapValues"
+import filter from "lodash/fp/filter"
+import size from "lodash/fp/size"
+import toPairs from "lodash/fp/toPairs"
+import identity from "lodash/fp/identity"
+import get from "lodash/fp/get"
+import { Line } from "react-chartjs-2"
 
 const FILE_URL =
-  'https://dl.dropboxusercontent.com/s/dpbdlobcf6y1snn/workout.gpi?raw=1'
+  "https://dl.dropboxusercontent.com/s/dpbdlobcf6y1snn/workout.gpi?raw=1"
 
 function buildDataset(data) {
   const line = {
-    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-    borderColor: 'rgb(54, 162, 235)',
+    backgroundColor: "rgba(54, 162, 235, 0.2)",
+    borderColor: "rgb(54, 162, 235)",
     borderWidth: 1,
-    label: 'activities count',
+    label: "activities count",
     data,
   }
   return { datasets: [line] }
@@ -53,26 +53,26 @@ class Activities extends React.Component {
 
   componentDidMount() {
     fetch(FILE_URL, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Cache-Control': 'no-cache',
+        "Cache-Control": "no-cache",
       },
     })
-      .then(response => response.text())
-      .then(text => text.split('\n'))
-      .then(lines => lines.slice(2))
+      .then((response) => response.text())
+      .then((text) => text.split("\n"))
+      .then((lines) => lines.slice(2))
       .then(filter(identity))
-      .then(map(line => line.split(' ')[0]))
+      .then(map((line) => line.split(" ")[0]))
       .then(map(DateTime.fromISO))
-      .then(map(date => date.toFormat('yyyy MM')))
+      .then(map((date) => date.toFormat("yyyy MM")))
       .then(groupBy(identity))
       .then(mapValues(size))
       .then(toPairs)
-      .then(dates =>
+      .then((dates) =>
         this.setState({
           data: map(
             ([date, count]) => ({
-              x: DateTime.fromFormat(date, 'yyyy MM').toJSDate(),
+              x: DateTime.fromFormat(date, "yyyy MM").toJSDate(),
               y: count,
             }),
             dates
@@ -101,7 +101,7 @@ class Activities extends React.Component {
 const LINE_OPTIONS = {
   responsive: true,
   scales: {
-    xAxes: [{ type: 'time', display: true }],
+    xAxes: [{ type: "time", display: true }],
     yAxes: [
       {
         display: true,

@@ -1,7 +1,7 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import PropTypes from 'prop-types'
-import { useStaticQuery, graphql } from 'gatsby'
+import React from "react"
+import Helmet from "react-helmet"
+import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
 
 const query = graphql`
   query GetSiteMetadata {
@@ -41,14 +41,14 @@ function SEO({ image, title, description, slug }) {
       <meta property="og:url" content={url} />
       <meta name="twitter:title" content={title || siteMetadata.title} />
       <meta name="twitter:description" content={metaDescription} />
-      <meta name="twitter:card" content={'summary'} />
+      <meta name="twitter:card" content={"summary"} />
       <meta name="twitter:site" content={siteMetadata.social.twitter} />
       <meta name="twitter:creator" content={siteMetadata.social.twitter} />
       <meta name="twitter:image" content={metaImage} />
 
       <meta
         name="google-site-verification"
-        content={'kjM2mfXvQ9XJ7BqEPTHNHWZ62wJsC5G_GtuPX1oy0EY'}
+        content={"kjM2mfXvQ9XJ7BqEPTHNHWZ62wJsC5G_GtuPX1oy0EY"}
       />
     </Helmet>
   )
@@ -56,8 +56,8 @@ function SEO({ image, title, description, slug }) {
 
 SEO.defaultProps = {
   meta: [],
-  title: '',
-  slug: '',
+  title: "",
+  slug: "",
 }
 
 SEO.propTypes = {
