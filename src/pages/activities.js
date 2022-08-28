@@ -9,7 +9,7 @@ import filter from "lodash/fp/filter"
 import size from "lodash/fp/size"
 import toPairs from "lodash/fp/toPairs"
 import identity from "lodash/fp/identity"
-import { Line } from "react-chartjs-2"
+import { Bar } from "react-chartjs-2"
 
 const FILE_URL =
   "https://dl.dropboxusercontent.com/s/0ssjtyffxxm3k3u/habit_record.json?raw=1"
@@ -91,7 +91,7 @@ class Activities extends React.Component {
     return (
       <Layout>
         <div style={{ width: 500, height: 500 }}>
-          <Line
+          <Bar
             data={buildDataset(data)}
             height="500"
             width="500"
