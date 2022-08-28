@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { DateTime } from "luxon"
 import map from "lodash/fp/map"
+import flatMap from "lodash/fp/flatMap"
 import groupBy from "lodash/fp/groupBy"
 import mapValues from "lodash/fp/mapValues"
 import filter from "lodash/fp/filter"
@@ -11,7 +12,7 @@ import identity from "lodash/fp/identity"
 import { Line } from "react-chartjs-2"
 
 const FILE_URL =
-  "https://dl.dropboxusercontent.com/s/dpbdlobcf6y1snn/workout.gpi?raw=1"
+  "https://dl.dropboxusercontent.com/s/0ssjtyffxxm3k3u/habit_record.json?raw=1"
 
 function buildDataset(data) {
   const line = {
@@ -50,19 +51,24 @@ class Activities extends React.Component {
     }
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     fetch(FILE_URL, {
       method: "GET",
       headers: {
         "Cache-Control": "no-cache",
       },
     })
-      .then((response) => response.text())
-      .then((text) => text.split("\n"))
-      .then((lines) => lines.slice(2))
-      .then(filter(identity))
-      .then(map((line) => line.split(" ")[0]))
+      .then((response) => response.json())
+      .then(
+        filter((habbit) =>
+          ["running", "workout", "Misc Activities"].includes(habbit.name)
+        )
+      )
+      .then(flatMap((habbit) => Object.keys(habbit.stats)))
+      .then((x) => console.log(x) || x)
       .then(map(DateTime.fromISO))
+      .then((dates) => dates.sort())
+      .then((x) => console.log(x) || x)
       .then(map((date) => date.toFormat("yyyy MM")))
       .then(groupBy(identity))
       .then(mapValues(size))
