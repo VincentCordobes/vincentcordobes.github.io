@@ -8,7 +8,8 @@ import mapValues from "lodash/fp/mapValues"
 import filter from "lodash/fp/filter"
 import size from "lodash/fp/size"
 import toPairs from "lodash/fp/toPairs"
-import identity from "lodash/fp/identity"
+import sortedUniqBy from "lodash/fp/sortedUniqBy"
+import sortBy from "lodash/fp/sortBy"
 import { Bar } from "react-chartjs-2"
 
 const FILE_URL =
@@ -65,12 +66,10 @@ class Activities extends React.Component {
         )
       )
       .then(flatMap((habbit) => Object.keys(habbit.stats)))
-      .then((x) => console.log(x) || x)
       .then(map(DateTime.fromISO))
-      .then((dates) => dates.sort())
-      .then((x) => console.log(x) || x)
-      .then(map((date) => date.toFormat("yyyy MM")))
-      .then(groupBy(identity))
+      .then(sortBy((date) => date.valueOf()))
+      .then(sortedUniqBy((date) => date.toFormat("yyyy MM dd")))
+      .then(groupBy((date) => date.toFormat("yyyy MM")))
       .then(mapValues(size))
       .then(toPairs)
       .then((dates) =>
