@@ -62,7 +62,7 @@ class Activities extends React.Component {
       .then((response) => response.json())
       .then(
         filter((habbit) =>
-          ["running", "workout", "Misc Activities"].includes(habbit.name)
+          ["cardio", "workout", "Misc Activities"].includes(habbit.name)
         )
       )
       .then(flatMap((habbit) => Object.keys(habbit.stats)))
