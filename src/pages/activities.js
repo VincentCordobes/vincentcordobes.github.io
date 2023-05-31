@@ -109,7 +109,7 @@ const LINE_OPTIONS = {
     yAxes: [
       {
         display: true,
-        ticks: { min: 0, max: 20 },
+        ticks: { min: 0, max: 31 },
       },
     ],
   },
