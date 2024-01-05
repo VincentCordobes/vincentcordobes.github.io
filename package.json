@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "chart.js": "^2.9.3",
-    "gatsby": "2.24.2",
+    "gatsby": "2.25.0",
     "gatsby-plugin-feed": "2.5.11",
     "gatsby-plugin-google-analytics": "2.3.11",
     "gatsby-plugin-offline": "3.2.17",
@@ -41,7 +41,8 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-pose": "^4.0.10",
-    "react-waypoint": "^9.0.3"
+    "react-waypoint": "^9.0.3",
+    "remark-parse": "^10.0.2"
   },
   "devDependencies": {
     "eslint": "7.4.0",
